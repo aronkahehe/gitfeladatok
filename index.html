@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <title>Fejszámolás</title>
+
+    <style>
+
+        .container{
+            width: 300px;
+            border: 2px solid black;
+            border-radius: 10%;
+            margin: auto;
+            text-align: center;
+            
+        }
+
+        h1{
+            text-align: center;
+        }
+
+        .szamgomb{
+            border-radius: 10px;
+            padding: 10px;
+            background-image: linear-gradient(red, lightblue);
+        }
+
+
+
+    </style>
+
+
+</head>
+<body>
+
+    <div class="container">
+        <h1>Jó vagy fejszámolásban?</h1>
+        <input type="button" value="adj meg számokat" class="szamgomb" onclick="randomszam()">
+        <br>
+
+        <br>
+        <span id="szam1"></span>
+        <i class="fa-solid fa-plus"></i>
+        <span id="szam2"></span>
+        <i class="fa-solid fa-equals"></i>
+        <input type="number" value="" id="sor" onkeyup="osszeadas()">
+
+        <br>
+
+        <i class="fa-solid fa-question kerdojel"></i>
+        <i class="fa-solid fa-thumbs-up likejo"></i>
+        <i class="fa-solid fa-thumbs-down likerossz"></i>
+        
+
+    </div>
+
+    <script>
+
+        function randomszam(){
+
+            let rszam1=Math.floor(Math.random()*100+1)
+            let rszam2=Math.floor(Math.random()*100+1)
+
+            document.getElementById('szam1').innerHTML=rszam1
+            document.getElementById('szam2').innerHTML=rszam2
+
+            console.log(rszam1)
+            console.log(rszam2)
+
+
+        }
+
+        
+
+
+        function osszeadas(){
+
+                let ossz1=+document.getElementById('szam1').innerHTML
+                let ossz2=+document.getElementById('szam2').innerHTML
+                let vegeredmeny=document.getElementById('sor').value
+        
+
+                let jovalasz=document.querySelector('.likejo')
+                let rosszvalasz=document.querySelector('.likerossz')
+                let kerdesjel=document.querySelector('.kerdojel')
+
+                let veglegesosszeadas=ossz1 + ossz2
+
+                console.log(vegeredmeny)
+                console.log(veglegesosszeadas)
+
+                if(vegeredmeny == veglegesosszeadas){
+                    kerdesjel.classList.toggle('likejo')
+                    jovalasz.classList.toggle('likejo')
+
+                }
+
+                else{
+                    kerdesjel.classList.toggle('likerossz')
+                    rosszvalasz.classList.toggle('likerossz')
+                }
+
+
+        }
+
+
+
+    </script>
+    
+</body>
+</html>
