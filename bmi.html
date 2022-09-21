@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Kalkulátor</title>
+
+    <style>
+
+        body{
+            background-color: burlywood;
+        }
+
+       .container{
+        text-align: center;
+        background-color: wheat;
+        width: 400px;
+        margin: auto;
+        border-radius: 2px;
+
+       } 
+
+       h2{
+        background-color: brown;
+        border: 2px solid black;
+       }
+
+       .keretecske{
+    
+        background-color: beige;
+        width: 150px;
+        margin: auto;
+        text-align: center;
+        border: solid 1px black;
+        margin-bottom: 10px;
+        box-shadow: 5px 5px gray;
+       }
+
+       #kg{
+        margin-bottom: 5px;
+        border-radius: 5px;
+        box-shadow: 2px 2px grey;
+       }
+
+       #cm{
+        margin-bottom: 5px;
+        border-radius: 5px;
+        box-shadow: 2px 2px grey;
+       }
+
+       #gomb{
+        margin-bottom: 5px;
+        border: 2px solid black;
+        box-shadow: 2px 3px grey;
+        width: 200px;
+        background-color: lightcoral;
+        margin-top: 10px;       
+    }
+
+
+
+
+
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+        <h2>BMI Kalkulátor</h2>
+    <div class="keretecske">
+        <div id="bmiszam">20.0</div>
+        <p id="cim">Normál testsúly</p>
+    </div>
+
+    <input type="number" name="suly" id="kg" placeholder="testsúly">
+    <span>kg</span>
+    <br>
+    <input type="number" name="magassag" id="cm" placeholder="testmagasság">
+    <span>cm</span>
+    <br>
+    <input type="button" value="Számol" id="gomb" onclick="szamol()">
+    
+    
+
+    <script>
+
+        function szamol(){
+
+            let suly=document.querySelector('#kg').value
+            let magassag=document.querySelector('#cm').value
+            let bmi= (suly/(magassag*magassag))*10000
+            
+
+            console.log(suly)
+            console.log(magassag)
+            console.log(bmi)
+
+            if(bmi <=18.5){
+                document.querySelector('#bmiszam').innerHTML=bmi.toFixed(1)
+                document.querySelector('#bmiszam').style.color="blue"
+                document.querySelector('#cim').innerHTML="Egyél többet 👨🏿‍❤️‍💋‍👨🏿"
+            }
+
+            else if(bmi >18.5 && bmi <= 24.9){
+                document.querySelector('#bmiszam').innerHTML=bmi.toFixed(1)
+                document.querySelector('#bmiszam').style.color='green'
+                document.querySelector('#cim').innerHTML="Normál súly"
+            }
+
+            else if(bmi >25 && bmi <= 29.9){
+                document.querySelector('#bmiszam').innerHTML=bmi.toFixed(1)
+                document.querySelector('#cim').innerHTML="Kezded elvetni a súlykot"
+            }
+
+            else if(bmi >30 && bmi <= 34.9){
+                document.querySelector('#bmiszam').innerHTML=bmi.toFixed(1)
+                document.querySelector('#cim').innerHTML="El fogod veszíteni a csatát"
+            }
+
+            else if(bmi >=35){
+                document.querySelector('#bmiszam').innerHTML=bmi.toFixed(1)
+                document.querySelector('#cim').innerHTML="Elvesztetted a csatát"
+            }
+        }
+
+    </script>
+
+</div>
+
+
+    
+</body>
+</html>
